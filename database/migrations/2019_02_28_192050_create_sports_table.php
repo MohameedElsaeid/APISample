@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateSportsTable extends Migration
 {
@@ -17,7 +17,7 @@ class CreateSportsTable extends Migration
             $table->increments('id');
             $table->char('sport_name');
             $table->unsignedInteger('club_id');
-            $table->foreign('club_id','sport_club_fk')
+            $table->foreign('club_id', 'sport_club_fk')
                 ->references('id')
                 ->on('clubs')
                 ->onUpdate('CASCADE')
