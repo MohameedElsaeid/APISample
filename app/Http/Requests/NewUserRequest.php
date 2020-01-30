@@ -15,7 +15,7 @@ class NewUserRequest extends FormRequest
     {
         return true;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,9 +25,9 @@ class NewUserRequest extends FormRequest
     {
         return [
             'first_name' => 'required|string|min:2|max:50',
-            'last_name' => 'required|string|min:2|max:50',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string|regex:/^\S*$/u|min:8'
+            'last_name'  => 'required|string|min:2|max:50',
+            'email'      => 'required|email|unique:users',
+            'password'   => 'required|string|regex:/^\S*$/u|min:8',
         ];
     }
 }

@@ -2,15 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
-    
+    use HasApiTokens;
+    use Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,7 +18,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password',
     ];
-    
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -28,14 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
     }
-    
+
     public function Sessions()
     {
-        return $this->belongsToMany(Session::class,'user_sessions');
+        return $this->belongsToMany(Session::class, 'user_sessions');
     }
 }

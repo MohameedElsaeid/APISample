@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateUserSessionsTable extends Migration
 {
@@ -17,12 +17,12 @@ class CreateUserSessionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('session_id');
-            $table->foreign('session_id','session_booked_user_fk')
+            $table->foreign('session_id', 'session_booked_user_fk')
                 ->references('id')
                 ->on('sessions')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-            $table->foreign('user_id','user_booked_session_fk')
+            $table->foreign('user_id', 'user_booked_session_fk')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('CASCADE')
