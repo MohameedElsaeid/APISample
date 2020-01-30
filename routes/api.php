@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +20,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('sessions', 'SessionController@getAllSession');
     Route::get('available-sessions', 'SessionController@getAvailableSession');
     Route::get('max-sport-attendee', 'SportController@getMaxSportAttendees');
-    
+
     Route::post('new-user', 'UserController@createUser');
     Route::middleware(['auth:api'])->group(function () {
-    
         Route::post('book-session', 'SessionController@bookSession');
         Route::get('user-sessions', 'SessionController@getUserSessions');
-        
     });
 });
-

@@ -14,12 +14,10 @@ class ClubController extends APIController
      */
     public function index()
     {
-        
-        $clubs =  Club::all();
-        
+        $clubs = Club::all();
+
         $clubs = ClubTransformers::transform($clubs);
-        
-        return $this->jsonResponse(1,$clubs,'success',[],200);
+
+        return $this->jsonResponse(1, $clubs, 'success', [], 200);
     }
-    
 }
